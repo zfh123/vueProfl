@@ -1,0 +1,13 @@
+body, html{
+line-height: 1;
+  font-family: 'PingFang SC', 'STHeitiSC-Light', 'Helvetica-Light', arial, sans-serif, 'Droid Sans Fallback';
+  user-select: none;
+  background: #222;
+  color:#fff;
+}
+a{
+  text-decoration: none;
+}
+ul,ol{
+  list-style: none
+}
