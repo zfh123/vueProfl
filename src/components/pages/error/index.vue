@@ -9,7 +9,6 @@
 <template>
     <div class="error">
         error
-        <h1>develop分支的修改</h1>
         <h2>错误的页面</h2>
     </div>
 </template>
