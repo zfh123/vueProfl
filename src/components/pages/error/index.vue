@@ -9,7 +9,7 @@
 <template>
     <div class="error">
         error
-        <h1>develop分支</h1>
+        <h1>develop分支发生了变化</h1>
     </div>
 </template>
 <script>
