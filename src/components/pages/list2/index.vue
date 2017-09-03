@@ -4,6 +4,7 @@
 <template>
     <div class="list2">
         list2
+        hjdsahjk
     </div>
 </template>
 <script>
