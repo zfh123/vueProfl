@@ -11,6 +11,7 @@
         error
         <h1>develop分支发生了变化</h1>
         <h2>master分支的提交</h2>
+        <h3>63276348</h3>
     </div>
 </template>
 <script>
