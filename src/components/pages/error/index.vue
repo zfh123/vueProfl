@@ -9,7 +9,11 @@
 <template>
     <div class="error">
         error
+<<<<<<< HEAD
         <h1>develop</h1>
+=======
+        <h1>develop分支</h1>
+>>>>>>> develop
     </div>
 </template>
 <script>
