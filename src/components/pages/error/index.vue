@@ -10,6 +10,7 @@
     <div class="error">
         error
         <h2>错误的页面</h2>
+        <h1>develop</h1>
     </div>
 </template>
 <script>
