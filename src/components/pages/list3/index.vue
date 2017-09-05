@@ -4,12 +4,6 @@
 <template>
     <div class="list3">
         list3
-
-
-
-
-
-        
         <h2>list3</h2>
     </div>
 </template>
