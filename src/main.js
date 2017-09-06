@@ -15,7 +15,7 @@ import 'common/css/reset.css'
 import 'common/js/config.js'
 
 /* eslint-disable no-new */
-new Vue({
+var vm = new Vue({
   el: '#app',
   router,
   store,

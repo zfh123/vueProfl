@@ -2,13 +2,29 @@
   <div id="app">
     <v-header></v-header>
     <v-tab></v-tab>
-    <router-view></router-view>
+    <router-view ref="allevent"></router-view>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'app'
+  name: 'app',
+  data(){
+    return{
+
+    }
+  },
+  created(){
+
+  },
+  mounted(){
+    this.$refs.allevent
+    // debugger
+  },
+  methods:{
+    
+
+  }
 }
 </script>
 

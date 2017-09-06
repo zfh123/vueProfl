@@ -5,6 +5,9 @@
     <div class="list3">
         list3
         <h2>list3</h2>
+        
+        <v-list @alls="alls" ref="parenTochild"></v-list>
+        <div class="pTc" @click="parTochild">父组件触发子组件</div>
     </div>
 </template>
 <script>
@@ -24,7 +27,8 @@ export default {
         console.log(this.cart)
     },
     mounted () {
-
+        // debugger
+        console.log(this.$refs.parenTochild)
     },
     computed: {
         ...mapState({
@@ -41,6 +45,12 @@ export default {
                 liop: "hdhduw=ehjwk",
                 uyr: "jdlwejklw"
             })
+        },
+        alls(str){
+            alert(str)
+        },
+        parTochild(){
+            this.$refs.parenTochild.childEvent('p-t-c')
         }
     }
 }
