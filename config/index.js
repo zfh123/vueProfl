@@ -5,7 +5,7 @@ module.exports = {
   build: {
     env: require('./prod.env'),
     index: path.resolve(__dirname, '../dist/index.html'),
-    assetsRoot: path.resolve(__dirname, '../dist'),
+    assetsRoot: path.resolve(__dirname, '../dist'),//__dirname是当前文件所在项目的文件夹的绝对路径
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     productionSourceMap: true,

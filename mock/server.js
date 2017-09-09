@@ -25,7 +25,7 @@ server.use(router)
 //         msg: ''
 //     })
 // }
-
+debugger
 server.listen(3001, () => {
     console.log('JSON Server is running')
 })
