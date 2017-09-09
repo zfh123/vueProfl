@@ -16,6 +16,7 @@ import * as API from 'api/index'
 import { mapState, mapActions } from 'vuex'
 import { USER_SIGNIN } from '../../../store/user'
 import { CART_TEST1, CART_TEST2 } from '../../../store/cart'
+import { BUSINESS_LIST} from '../../../store/business'
 import { test1, test2 } from 'api/list1'
 export default {
     data() {
@@ -33,12 +34,14 @@ export default {
     computed: {
         ...mapState({
             user: state => state.user,
-            cart: state => state.cart
+            cart: state => state.cart,
+            business: state => state.business
         })
     },
     methods: {
-        ...mapActions([USER_SIGNIN, CART_TEST1, CART_TEST2]),
+        ...mapActions([USER_SIGNIN, CART_TEST1, CART_TEST2,BUSINESS_LIST]),
         Axios() {
+            var $this =this;
             axios({
                 url: API.List,
                 method: 'get',
@@ -47,6 +50,7 @@ export default {
                 }
             }).then(function(response) { 
                 console.log(response)
+                $this.BUSINESS_LIST(response.data)
             }).catch(function(err) {
                 console.log(err)
             })

@@ -1,15 +1,14 @@
 export const USER_SIGNIN = 'USER_SIGNIN' // 登录
 export const USER_SIGNOUT = 'USER_SIGNOUT' // 退出
 export default {
-  state: JSON.parse(sessionStorage.getItem('user') || 'null'),
+  state: JSON.parse(localStorage.getItem('user') || 'null'),
   mutations: {
     [USER_SIGNIN] (state, loginData) {
       Object.assign(state, loginData)
-      sessionStorage.setItem('user', JSON.stringify(state))
+      localStorage.setItem('user', JSON.stringify(state))
     },
     [USER_SIGNOUT] (state) {
-      // debugger
-      sessionStorage.removeItem('user')
+      localStorage.removeItem('user')
       Object.assign(state, {})
     }
   },

@@ -1,19 +1,19 @@
 export const CART_TEST1 = 'CART_TEST1' // 登录
 export const CART_TEST2 = 'CART_TEST2' // 退出
 export default {
-    state: JSON.parse(sessionStorage.getItem('cart') || '{"address":{},"business":{}}'),
+    state: JSON.parse(localStorage.getItem('cart') || '{"address":{},"business":{}}'),
     mutations: {
         [CART_TEST1] (state, address) {
             const cart = state;
             cart.address = address;
             Object.assign(state, cart)
-            sessionStorage.setItem('cart', JSON.stringify(state))
+            localStorage.setItem('cart', JSON.stringify(state))
         },
         [CART_TEST2] (state, business) {
             const cart = state;
             cart.business = business;
             Object.assign(state, cart)
-            sessionStorage.setItem('cart', JSON.stringify(state))
+            localStorage.setItem('cart', JSON.stringify(state))
         }
     },
     actions: {

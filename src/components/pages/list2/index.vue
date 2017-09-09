@@ -40,7 +40,8 @@ export default {
     computed: {
         ...mapState({
             user: state => state.user,
-            cart: state => state.cart
+            cart: state => state.cart,
+            business:state => state.business
         })
     },
     mounted() {
