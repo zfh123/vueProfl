@@ -5,30 +5,30 @@
     <div class="list3">
         list3
         <h2>list3</h2>
-        
+
         <v-list @alls="alls" ref="parenTochild"></v-list>
         <div class="pTc" @click="parTochild">父组件触发子组件</div>
     </div>
 </template>
 <script>
+import axios from 'axios'
+import * as API from 'api/index'
 import { mapState, mapActions } from 'vuex'
 import { USER_SIGNIN } from '../../../store/user'
 import { CART_TEST1, CART_TEST2 } from '../../../store/cart'
 import { test1, test2 } from 'api/list1'
 export default {
-    data () {
+    data() {
         return {
 
         }
     },
-    created () {
+    created() {
         this._test3()
-        console.log(this.user)
-        console.log(this.cart)
+        this.Axios()
     },
-    mounted () {
-        // debugger
-        console.log(this.$refs.parenTochild)
+    mounted() {
+
     },
     computed: {
         ...mapState({
@@ -38,7 +38,20 @@ export default {
     },
     methods: {
         ...mapActions([USER_SIGNIN, CART_TEST1, CART_TEST2]),
-        _test3 () {
+        Axios() {
+            axios({
+                url: API.List,
+                method: 'get',
+                data: {
+                    id: 1
+                }
+            }).then(function(response) { 
+                console.log(response)
+            }).catch(function(err) {
+                console.log(err)
+            })
+        },
+        _test3() {
             test1('list3')
             this.CART_TEST2({
                 smg: "jdod-328",
@@ -46,10 +59,10 @@ export default {
                 uyr: "jdlwejklw"
             })
         },
-        alls(str){
+        alls(str) {
             alert(str)
         },
-        parTochild(){
+        parTochild() {
             this.$refs.parenTochild.childEvent('p-t-c')
         }
     }
