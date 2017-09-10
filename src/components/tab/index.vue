@@ -7,7 +7,7 @@
             <span class="tab-link">three</span>
         </router-link>
          <router-link class="tab-item" to="/my">
-            <span class="tab-link">my</span>
+            <span class="tab-link">search</span>
         </router-link>
     </div>
 </template>

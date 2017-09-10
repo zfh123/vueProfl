@@ -1,9 +1,13 @@
 <style>
-
+    .childRout{
+        margin: 40px 60px;
+    }
 </style>
 <template>
-    <div class="my">
-        my
+    <div class="my" @click="Trefs">
+        <v-search @search="search" ref="Vsearch"></v-search>
+        <div class="childRout" @click="childRout" >子组件</div>
+        <router-view></router-view>
     </div>
 </template>
 <script>
@@ -35,6 +39,17 @@ export default {
         ...mapActions([USER_SIGNIN, CART_TEST1, CART_TEST2]),
         _test3 () {
             test1('my')
+        },
+        Trefs(){
+            // this.$refs.Vsearch.Quest()
+        },
+        search(val){
+            console.log(val)
+        },
+        childRout(){
+            this.$router.push({
+                path: `/my/${588}`
+            })
         }
     }
 }
