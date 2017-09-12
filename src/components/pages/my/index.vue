@@ -29,6 +29,9 @@ export default {
     mounted () {
 
     },
+    watch:{
+        '$route':'test'
+    },
     computed: {
         ...mapState({
             user: state => state.user,
@@ -37,6 +40,9 @@ export default {
     },
     methods: {
         ...mapActions([USER_SIGNIN, CART_TEST1, CART_TEST2]),
+        test(){
+            console.log('------------------对路由的监控------------------')
+        },
         _test3 () {
             test1('my')
         },
@@ -48,7 +54,7 @@ export default {
         },
         childRout(){
             this.$router.push({
-                path: `/my/${588}`
+                path: `/my/${5}`
             })
         }
     }

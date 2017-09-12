@@ -5,6 +5,12 @@ Vue.use(Router)
 
 export default new Router({
   routes: [{
+      path: '/errs',
+      components: {
+
+      }
+    },
+    {
       path: '/',
       redirect: '/list2'
     },
@@ -14,7 +20,20 @@ export default new Router({
       meta: {
         auth: false
       },
-      component: resolve => require(['../components/pages/list2/'], resolve)
+      component: resolve => require(['../components/pages/list2/'], resolve),
+      children: [
+        {
+          path: 'base1',
+          meta: {auth: false},
+          component: resolve => require(['../components/base/base1'], resolve)
+        },
+        {
+          path: 'base2',
+          meta: {auth: false},
+          component: resolve => require(['../components/base/base2'], resolve)
+        }
+      ]
+
     },
     {
       path: '/list3',
@@ -27,16 +46,20 @@ export default new Router({
     {
       path: '/my',
       name: 'my',
-      meta: {auth: false},
+      meta: {
+        auth: false
+      },
       component: resolve => require(['../components/pages/my/'], resolve),
       children: [{
         path: ':id',
-        meta: {auth: false},
+        meta: {
+          auth: false
+        },
         component: resolve => require(['../components/top-list/'], resolve),
       }]
     },
     {
-      path: '*',
+      path: '/',
       name: 'error',
       meta: {
         auth: false

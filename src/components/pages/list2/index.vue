@@ -4,14 +4,33 @@ ul li {
     text-align: center;
     line-height: 20px;
 }
+
+.tab {
+    display: flex;
+    margin-top: 20px;
+}
+
+.tab li {
+    flex: 1;
+    line-height: 35px;
+}
 </style>
 <template>
     <div class="list2">
-        <ul>
-            <li :id="'id-'+item" v-for="item in list" v-text="item" @click="tabs(item)"></li>
-            <li v-text="name"></li>
+        <ul class="tab">
+            <li>
+                <router-link class="tab-item" to="/list2/base1">开始</router-link>
+            </li>
+            <li>
+                <router-link class="tab-item" to="/list2/base2">结束</router-link>
+            </li>
         </ul>
-        <v-list @Child="Child" ref="getChildinfor"></v-list>
+        <!-- <ul>
+                    <li :id="'id-'+item" v-for="item in list" v-text="item" @click="tabs(item)"></li>
+                    <li v-text="name"></li>
+                </ul>
+                <v-list @Child="Child" ref="getChildinfor"></v-list> -->
+        <router-view></router-view>        
     </div>
 </template>
 <script>
@@ -41,7 +60,7 @@ export default {
         ...mapState({
             user: state => state.user,
             cart: state => state.cart,
-            business:state => state.business
+            business: state => state.business
         })
     },
     mounted() {

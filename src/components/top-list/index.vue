@@ -58,19 +58,32 @@
 .tabList .actives {
     color: yellow;
 }
+
 .tab-scroll {
     position: fixed;
     width: 100%;
     bottom: 0;
     top: 50px;
 }
-.wrapper{
+
+.wrapper {
     height: 100%;
     overflow: hidden;
 }
-.wrapper .item{
+
+.wrapper .item {
     line-height: 100px;
     text-align: center;
+}
+
+.nav {
+    display: flex;
+}
+
+.nav .nav-item {
+    line-height: 40px;
+    text-align: center;
+    flex: 1;
 }
 </style>
 <template>
@@ -80,32 +93,45 @@
                 <ul class="tabList">
                     <li class="item" :class="{actives:selected==index}" v-for="(item,index) in navlist" @click="Active(index)" v-text="item.id"></li>
                 </ul>
-                <div class="tab-scroll" ref="searchList">
-                    <!--api 传递给其子组件  -->
-                    <v-scroll class="wrapper" :listenScroll="listenScroll" :pullup="pullup" @pullUp="pullUp" :downRefish="downRefish" :load="load">
-                        <ul>
-                            <li class="item">列表</li>
-                            <li class="item">列表</li>
-                            <li class="item">列表</li>
-                            <li class="item">列表</li>
-                            <li class="item">列表</li>
-                            <li class="item">列表</li>
-                            <li class="item">列表</li>
-                            <li class="item">列表</li>
-                            <li class="item">列表</li>
-                            <li class="item">列表</li>
-                            <li class="item">列表</li>
-                            <li class="item">列表</li>
-                            <li class="item">列表</li>
-                            <li class="item">列表</li>
-                            <li class="item">列表</li>
-                            <li class="item">列表</li>
-                            <li class="item">列表</li>
-                        </ul>
-                    </v-scroll>
-                </div>
+                <ul class="nav">
+                    <li class="nav-item">
+                        <router-link to="/list2/list">
+                            list
+                        </router-link>
+                    </li>
+                    <li class="nav-item">
+                        <router-link to="/list2/detail">
+                            detail
+                        </router-link>
+                    </li>
+                </ul>
+                <!-- <div class="tab-scroll" ref="searchList"> -->
+                <!--api 传递给其子组件  -->
+                <!-- <v-scroll class="wrapper" :listenScroll="listenScroll" :pullup="pullup" @pullUp="pullUp" :downRefish="downRefish" :load="load">
+                                <ul>
+                                    <li class="item">列表</li>
+                                    <li class="item">列表</li>
+                                    <li class="item">列表</li>
+                                    <li class="item">列表</li>
+                                    <li class="item">列表</li>
+                                    <li class="item">列表</li>
+                                    <li class="item">列表</li>
+                                    <li class="item">列表</li>
+                                    <li class="item">列表</li>
+                                    <li class="item">列表</li>
+                                    <li class="item">列表</li>
+                                    <li class="item">列表</li>
+                                    <li class="item">列表</li>
+                                    <li class="item">列表</li>
+                                    <li class="item">列表</li>
+                                    <li class="item">列表</li>
+                                    <li class="item">列表</li>
+                                </ul>
+                            </v-scroll> -->
+                <!-- </div> -->
                 <div class="back" @click="back">back</div>
             </div>
+            <router-view></router-view>
         </div>
     </transition>
 </template>
@@ -118,15 +144,22 @@ export default {
             navlist: [],
             selected: 0,
             pullup: true,
-            downRefish:true,
-            load:true,
-            listenScroll:true
+            downRefish: true,
+            load: true,
+            listenScroll: true
         }
+    },
+    watch: {
+        '$route': 'test'
     },
     created() {
         this.Axios();
+
     },
     methods: {
+        test() {
+            console.log('路由的跳转调用该方法')
+        },
         back() {
             this.$router.back()
         },
@@ -141,7 +174,7 @@ export default {
             }).then(function(response) {
                 console.log(response.data)
                 $this.navlist = response.data
-                $this.BUSINESS_LIST(response.data)
+                // $this.BUSINESS_LIST(response.data)
             }).catch(function(err) {
                 console.log(err)
             })
@@ -150,7 +183,7 @@ export default {
             this.selected = index;
 
         },
-        pullUp(){
+        pullUp() {
             console.log('上拉加载更多数据')
         }
     }
