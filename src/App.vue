@@ -22,7 +22,9 @@ export default {
     // debugger
   },
   methods:{
-    
+    test(){
+      
+    }
 
   }
 }
