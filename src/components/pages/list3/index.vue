@@ -6,8 +6,8 @@
         list3
         <h2>list3</h2>
 
-        <v-list @alls="alls" ref="parenTochild"></v-list>
-        <div class="pTc" @click="parTochild">父组件触发子组件</div>
+        <!-- <v-list @alls="alls" ref="parenTochild"></v-list> -->
+        <!-- <div class="pTc" @click="parTochild">父组件触发子组件</div> -->
     </div>
 </template>
 <script>
