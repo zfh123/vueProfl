@@ -25,6 +25,7 @@ ul li {
                 <router-link class="tab-item" to="/list2/base2">结束</router-link>
             </li>
         </ul>
+        <div class="qrcode" style="width:100px; height:100px; margin-top:15px;background:green"></div>
         <!-- <ul>
                     <li :id="'id-'+item" v-for="item in list" v-text="item" @click="tabs(item)"></li>
                     <li v-text="name"></li>
@@ -54,7 +55,12 @@ export default {
         console.log(API)
         this._test2()
         this.getAxoi()
-        this.list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 0]
+        this.list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 0];
+        var $this = this;
+        setTimeout(function(params) {
+            $this.printCode();
+        },3000)
+        
     },
     computed: {
         ...mapState({
@@ -65,7 +71,8 @@ export default {
     },
     mounted() {
         // debugger
-        console.log(this.$refs.getChildinfor)
+        console.log(this.$refs.getChildinfor);
+        
     },
     methods: {
         ...mapActions([USER_SIGNIN, CART_TEST1, CART_TEST2]),
@@ -74,6 +81,20 @@ export default {
         },
         tabs(str) {
             alert(str)
+        },
+        printCode(params) {
+            debugger;
+            var arr = ['dww', 'eqewer', 'lsjdj', 'r348', 'u89rwi']
+            var qrcode = document.getElementsByClassName("qrcode");
+            for (var i = 0; i < qrcode.length; i++) {
+                var qrcodes = new QRCode(qrcode[i], {
+                    width: 100,
+                    height: 100,
+                    text:arr[i]
+                });
+                // qrcodes.makeCode(arr[i]);
+            }
+
         },
         getAxoi() {
             $.ajax({

@@ -10,6 +10,7 @@ Object.keys(components).forEach((key) => {
   Vue.component(`v${name}`, components[key])
 })
 require('./static/jquery-2.2.3.min.js')
+require('./static/qrcode.min.js')
 import 'common/css/base.css'
 import 'common/css/reset.css'
 import 'common/js/config.js'

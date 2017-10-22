@@ -43,8 +43,8 @@ export default {
         Axios() {
             var $this =this;
             axios({
-                url: API.List,
-                method: 'get',
+                url: '/api/'+'/BaUsersStaff/LoginStaff',
+                method: 'post',
                 data: {
                     id: 1
                 }
