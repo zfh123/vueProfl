@@ -14,7 +14,11 @@
 
 <script type="es6">
 export default {
-
+  data(){
+    return{
+      test:'develop代码'
+    }
+  }
 }
 </script>
 
