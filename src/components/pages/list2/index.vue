@@ -37,7 +37,7 @@ ul li {
 <script>
 import axios from 'axios'
 import { mapState, mapActions } from 'vuex'
-import { USER_SIGNIN } from '../../../store/user'
+import { USER_SIGNIN ,USER_DATA} from '../../../store/user'
 import { CART_TEST1, CART_TEST2 } from '../../../store/cart'
 import { test1, test2 } from 'api/list1'
 import * as API from 'api/index'
@@ -52,13 +52,12 @@ export default {
         }
     },
     created() {
-        console.log(API)
         this._test2()
-        this.getAxoi()
+        // this.getAxoi()
         this.list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 0];
         var $this = this;
         setTimeout(function(params) {
-            $this.printCode();
+            // $this.printCode();
         },3000)
         
     },
@@ -75,7 +74,7 @@ export default {
         
     },
     methods: {
-        ...mapActions([USER_SIGNIN, CART_TEST1, CART_TEST2]),
+        ...mapActions([USER_SIGNIN, CART_TEST1, CART_TEST2,USER_DATA]),
         Child(data) {
             alert(data)
         },
@@ -108,16 +107,20 @@ export default {
             });
         },
         _test2() {
-            test1('list2')
-            this.USER_SIGNIN({
-                name: '63786213876183',
-                id: '6472634'
-            })
-            this.CART_TEST1({
-                name: "wo",
-                id: "78-90",
-                ip: "7482-hks"
-            })
+            let obj = {
+                shop:{
+                    id:'10000001',
+                    ip:'',
+                },
+                shopList:[
+                    {
+                        id:'1',
+                        o:'a'
+                    }
+                ],
+                token:'1111111111111111111111111111',
+            }
+            this.USER_SIGNIN(obj);
         }
     }
 }

@@ -12,7 +12,7 @@
 </template>
 <script>
 import { mapState, mapActions } from 'vuex'
-import { USER_SIGNIN } from '../../../store/user'
+import { USER_SIGNIN ,USER_UPDATA} from '../../../store/user'
 import { CART_TEST1, CART_TEST2 } from '../../../store/cart'
 import { test1, test2 } from 'api/list1'
 export default {
@@ -27,7 +27,12 @@ export default {
         console.log(this.cart)
     },
     mounted () {
-
+        this.USER_UPDATA({
+            id:'search1111',
+            ip:'ndmansd',
+            o:'jlakjdlka',
+            list:''
+        });
     },
     watch:{
         '$route':'test'
@@ -39,7 +44,7 @@ export default {
         })
     },
     methods: {
-        ...mapActions([USER_SIGNIN, CART_TEST1, CART_TEST2]),
+        ...mapActions([USER_SIGNIN, CART_TEST1, CART_TEST2,USER_UPDATA]),
         test(){
             console.log('------------------对路由的监控------------------')
         },
