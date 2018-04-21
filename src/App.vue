@@ -17,12 +17,14 @@ export default {
   created(){
 
   },
+
+  
   mounted(){
     this.$refs.allevent
 
 
 
-    
+
     // debugger
   },
   methods:{
