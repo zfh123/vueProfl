@@ -18,13 +18,10 @@ export default {
 
   },
 
-  
+
   mounted(){
     this.$refs.allevent
-
-
-
-
+//    zh这里是develop分支的最新代码 
     // debugger
   },
   methods:{
