@@ -19,11 +19,15 @@ export default {
   },
   mounted(){
     this.$refs.allevent
+
+
+
+    
     // debugger
   },
   methods:{
     test(){
-      
+
     }
 
   }
